@@ -5,6 +5,9 @@ require('dotenv').config();
 const app = express();
 const port = process.env.PORT || 3002;
 
+const { startAlertConsumer } = require('./rabbitmq');
+startAlertConsumer();
+
 // Initialize Twilio client
 const client = twilio(
   process.env.TWILIO_ACCOUNT_SID,
